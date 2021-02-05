@@ -105,6 +105,7 @@ class Player {
                 const url = getVimeoUrl(params);
 
                 getOEmbedData(url, params, element).then((data) => {
+                    if (options.live) data.html = `<iframe src="${options.url}/embed?controls=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
                     const iframe = createEmbed(data, element);
                     // Overwrite element with the new iframe,
                     // but store reference to the original element
