@@ -1222,6 +1222,7 @@ var Player = /*#__PURE__*/function () {
         var params = getOEmbedParameters(element, options);
         var url = getVimeoUrl(params);
         getOEmbedData(url, params, element).then(function (data) {
+          if (options.live) data.html = "<iframe src=\"".concat(options.url, "/embed?controls=0\" width=\"640\" height=\"360\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe>");
           var iframe = createEmbed(data, element); // Overwrite element with the new iframe,
           // but store reference to the original element
 
